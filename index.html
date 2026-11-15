@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#0b0d12">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="PC Kumanda">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%2300e5ff%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23b26bff%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%22512%22%20height%3D%22512%22%20rx%3D%22112%22%20fill%3D%22%230b0d12%22/%3E%3Crect%20x%3D%2296%22%20y%3D%22120%22%20width%3D%22320%22%20height%3D%22210%22%20rx%3D%2224%22%20fill%3D%22none%22%20stroke%3D%22url%28%23g%29%22%20stroke-width%3D%2228%22/%3E%3Cpath%20d%3D%22M196%20400h120M256%20330v70%22%20stroke%3D%22url%28%23g%29%22%20stroke-width%3D%2228%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M256%20175v55%22%20stroke%3D%22url%28%23g%29%22%20stroke-width%3D%2226%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M215%20192a55%2055%200%201%200%2082%200%22%20fill%3D%22none%22%20stroke%3D%22url%28%23g%29%22%20stroke-width%3D%2222%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<title>PC Kumanda</title>
+<style>
+:root{--bg:#0b0d12;--card:#141821;--card2:#1b2030;--line:#262c3d;--txt:#e8eaf0;--mut:#8b93a7;--acc:#00e5ff;--acc2:#b26bff;--ok:#2ee59d;--bad:#ff4d6d;--warn:#ffb020}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--txt);font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+body{padding:env(safe-area-inset-top) 0 calc(76px + env(safe-area-inset-bottom))}
+button{font:inherit;color:inherit;border:0;background:var(--card2);border-radius:12px;padding:12px 10px;cursor:pointer;touch-action:manipulation;user-select:none;-webkit-user-select:none}
+button:active{transform:scale(.97);filter:brightness(1.25)}
+button:disabled{opacity:.4}
+button.acc{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#05070b;font-weight:700}
+button.danger{background:#3a1520;color:#ffb3c1}
+button.ghost{background:transparent;border:1px solid var(--line)}
+input,select,textarea{font:inherit;color:var(--txt);background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:12px;width:100%}
+header{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:10px;padding:14px 16px;background:#0b0d12ee;backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.logo{font-weight:800;letter-spacing:.5px;background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+#net{margin-left:auto;font-size:12px;color:var(--mut);display:flex;gap:6px;align-items:center}
+.page{display:none;padding:16px}.page.show{display:block}
+nav{position:fixed;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);background:#0e1118;padding-bottom:env(safe-area-inset-bottom);z-index:5}
+nav button{background:none;border-radius:0;padding:10px 0 12px;font-size:12px;color:var(--mut);display:flex;flex-direction:column;align-items:center;gap:3px}
+nav button svg{width:22px;height:22px}nav button.sel{color:var(--acc)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;margin-bottom:12px}
+.row{display:flex;align-items:center;gap:10px}
+.title{font-weight:700;font-size:17px}
+.sub{color:var(--mut);font-size:13px}
+.small{font-size:12px;color:var(--mut)}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--bad);flex:none}
+.dot.on{background:var(--ok);box-shadow:0 0 8px var(--ok)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.chip{background:var(--card2);border-radius:99px;padding:4px 10px;font-size:12px;color:var(--mut)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.grid4 button{padding:12px 2px;font-size:13px}
+.gear{background:none;padding:6px 8px;font-size:18px;color:var(--mut)}
+h3{margin:20px 0 8px;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--mut)}
+label{display:block;font-size:13px;color:var(--mut);margin:12px 0 6px}
+.sheet-bg{position:fixed;inset:0;background:#000a;display:none;align-items:flex-end;z-index:9}
+.sheet-bg.show{display:flex}
+.sheet{background:var(--card);width:100%;border-radius:22px 22px 0 0;padding:18px 16px calc(18px + env(safe-area-inset-bottom));max-height:88vh;overflow:auto}
+#toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:#222a3b;padding:10px 16px;border-radius:12px;font-size:14px;opacity:0;transition:.25s;pointer-events:none;z-index:20;max-width:90%;text-align:center}
+#toast.show{opacity:1}
+.log{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}
+.log:last-child{border:0}
+.code{font-family:ui-monospace,Menlo,monospace;font-size:12px;background:#0b0d12;border:1px solid var(--line);border-radius:10px;padding:10px;word-break:break-all;margin:6px 0}
+.steps{padding-left:20px;margin:8px 0}.steps li{margin:6px 0}
+.switch{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0}
+.switch input{width:auto;transform:scale(1.4)}
+.empty{color:var(--mut);text-align:center;padding:30px 10px}
+.login{max-width:420px;margin:12vh auto 0;padding:20px;text-align:center}
+</style>
+</head>
+<body>
+<header><span class="logo">PC KUMANDA</span><div id="net"><span class="dot" id="netDot"></span><span id="netTxt">bağlanıyor</span></div></header>
+
+<div id="loginView" class="login" style="display:none">
+  <div class="title" style="font-size:22px">Hoş geldin</div>
+  <p class="sub">PC'de <b>qr_goster.bat</b>'ı aç ve "Her yerden" QR kodunu okut. Ya da anahtarı buraya yapıştır.</p>
+  <input id="keyIn" placeholder="Anahtar" autocapitalize="off" autocorrect="off" spellcheck="false">
+  <button class="acc" style="width:100%;margin-top:10px" onclick="login($('#keyIn').value)">Giriş</button>
+</div>
+
+<div id="app" style="display:none">
+  <section class="page show" id="p-dev"><div id="devs"></div></section>
+
+  <section class="page" id="p-auto">
+    <div class="card">
+      <div class="title">📍 Eve gelince / evden çıkınca</div>
+      <p class="sub">Her PC için ne olacağını <b>Cihazlar</b> sekmesinde ⚙️ menüsünden seç. Konumu iPhone'un kendi <b>Kestirmeler</b> uygulaması algılar ve aşağıdaki isteği gönderir. Uygulama kapalıyken de çalışır.</p>
+      <div id="rules"></div>
+    </div>
+    <div class="card">
+      <div class="title">Kurulum (bir kere, ~3 dk)</div>
+      <ol class="steps">
+        <li><b>Kestirmeler</b> → alttan <b>Otomasyon</b> → <b>+</b> → <b>Varış</b></li>
+        <li>Konum: <b>Ev</b> adresini seç. Yarıçapı büyütebilirsin (ör. 500 m: eve varmadan açılsın)</li>
+        <li><b>Hemen Çalıştır</b>'ı seç → İleri → <b>Yeni Boş Otomasyon</b></li>
+        <li>Eylem ekle: <b>URL'nin İçeriğini Al</b>. URL kısmına aşağıdaki <b>URL</b>'yi yapıştır</li>
+        <li>Eylemdeki <b>›</b> oku aç:
+          <br>• <b>Yöntem</b>: POST
+          <br>• <b>Başlıklar</b> → Başlık Ekle: anahtar <code>apikey</code>, değer aşağıdaki <b>apikey</b>
+          <br>• <b>İstek Gövdesi</b>: JSON → iki <b>Metin</b> alanı ekle: <code>p_key</code> = <b>anahtarın</b>, <code>p_event</code> = <code>arrive</code></li>
+        <li>(İsteğe bağlı) <b>Bildirim Göster</b> eylemi ekle → içerik: <i>URL'nin İçeriği</i>. Ne yapıldığını telefonda görürsün</li>
+        <li>Aynısını <b>Ayrılış</b> için yap, tek fark: <code>p_event</code> = <code>leave</code></li>
+      </ol>
+      <div id="trFields"></div>
+      <div class="grid2" style="margin-top:12px">
+        <button class="ghost" onclick="testTrigger('arrive')">Varışı dene</button>
+        <button class="ghost" onclick="testTrigger('leave')">Ayrılışı dene</button>
+      </div>
+      <p class="small" style="margin-top:12px">🎙️ <b>Siri ile</b> ("Hey Siri, bilgisayarı aç"): Kestirmeler'de yeni kestirme yap, aynı şekilde <b>URL'nin İçeriğini Al</b> ekle, değerleri bir cihazın ⚙️ menüsündeki <b>Siri</b> bölümünden al. Kestirmenin adı Siri'ye söyleyeceğin cümle olur.</p>
+    </div>
+    <div class="card">
+      <div class="title">⚡ Kapalı PC nasıl açılıyor?</div>
+      <p class="sub">Kapalı PC'yi açacak sinyal ev ağının içinden gönderilmeli. Bunu evde o an açık olan cihaz yapar: diğer PC ya da <b>Bekçi</b> (ESP32 kartı, ~1 W harcar, hep açık kalır). İkisi de kapalıysa açma komutu ulaşmaz. Kapatma, kilitleme gibi komutlar açık PC'lere her zaman ulaşır.</p>
+    </div>
+  </section>
+
+  <section class="page" id="p-log">
+    <div class="card"><div class="title">Son işlemler</div><div id="logs"></div></div>
+    <div class="card">
+      <div class="title">Hesap</div>
+      <p class="sub">Bu telefon anahtarla bağlı. Ana ekrana eklemek için Safari'de Paylaş → <b>Ana Ekrana Ekle</b>. Çıkış yaparsan tekrar QR okutman gerekir.</p>
+      <button class="ghost" style="width:100%" onclick="if(confirm('Çıkış yapılsın mı?')){localStorage.removeItem(LS);history.replaceState(null,'',location.pathname);location.reload()}">Çıkış yap</button>
+    </div>
+  </section>
+</div>
+
+<nav id="nav" style="display:none">
+  <button class="sel" data-p="p-dev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Cihazlar</button>
+  <button data-p="p-auto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>Otomasyon</button>
+  <button data-p="p-log"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg>Geçmiş</button>
+</nav>
+
+<div class="sheet-bg" id="sheetBg" onclick="if(event.target===this)closeSheet()"><div class="sheet" id="sheet"></div></div>
+<div id="toast"></div>
+
+<script>
+const SUPA = 'https://wbsjxbqzziltndmipmzv.supabase.co';
+const APIKEY = 'sb_publishable_RaX9W0oUH-BKxTDn31IDGw_fXRjlSE2';
+const LS = 'pck_cloud_key';
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let KEY = null, ST = {devices: [], commands: []}, fastUntil = 0, pollTimer = null;
+
+function toast(m){ const t = $('#toast'); t.textContent = m; t.classList.add('show'); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove('show'), 2600); }
+function sheet(h){ $('#sheet').innerHTML = h; $('#sheetBg').classList.add('show'); }
+function closeSheet(){ $('#sheetBg').classList.remove('show'); }
+
+async function rpc(fn, body){
+  const r = await fetch(`${SUPA}/rest/v1/rpc/${fn}`, {method: 'POST',
+    headers: {apikey: APIKEY, 'Content-Type': 'application/json'}, body: JSON.stringify(body)});
+  const j = await r.json().catch(() => null);
+  if (!r.ok) throw new Error(j?.message || ('HTTP ' + r.status));
+  return j;
+}
+const COPY = [];
+function field(label, value){
+  const i = COPY.push(value) - 1;
+  return `<div class="row" style="margin-top:8px"><div style="flex:1;min-width:0"><div class="small">${label}</div><div class="code" style="margin:4px 0 0">${esc(value)}</div></div>
+    <button onclick="copyText(COPY[${i}])" style="flex:none">Kopyala</button></div>`;
+}
+
+// ---------------------------------------------------------- giris
+async function login(k){
+  k = (k || '').trim(); if (!k) return;
+  try{ ST = await rpc('pck_app_state', {p_key: k}); }
+  catch(e){ $('#loginView').style.display = 'block'; $('#keyIn').value = k;
+    toast(e.message.includes('Anahtar') ? 'Anahtar bulunamadı. PC\'de ajan çalışıyor mu?' : 'Bağlanılamadı: ' + e.message); return; }
+  KEY = k; localStorage.setItem(LS, k); setNet(true);
+  // Anahtar adreste (#) kalir: iPhone'da Ana Ekrana eklenen uygulamanin ayri hafizasi oldugu icin gerekli. # kismi sunucuya gitmez.
+  if (new URLSearchParams(location.hash.slice(1)).get('k') !== k) history.replaceState(null, '', location.pathname + '#k=' + encodeURIComponent(k));
+  $('#loginView').style.display = 'none'; $('#app').style.display = 'block'; $('#nav').style.display = 'grid';
+  $('#trFields').innerHTML = field('URL', `${SUPA}/rest/v1/rpc/pck_trigger`) + field('apikey (başlık değeri)', APIKEY) + field('p_key (anahtarın)', KEY)
+    + `<p class="small" style="margin:10px 0 0">p_event: eve gelince <code>arrive</code>, evden çıkınca <code>leave</code></p>`;
+  render(); schedule();
+}
+
+function schedule(){
+  clearTimeout(pollTimer);
+  const ms = document.hidden ? 15000 : (Date.now() < fastUntil ? 1000 : 3000);
+  pollTimer = setTimeout(poll, ms);
+}
+async function poll(){
+  try{ ST = await rpc('pck_app_state', {p_key: KEY}); setNet(true); render(); }
+  catch(e){ setNet(false, e.message); }
+  schedule();
+}
+document.addEventListener('visibilitychange', () => { if (!document.hidden && KEY) poll(); });
+function setNet(ok, err){ $('#netDot').className = 'dot' + (ok ? ' on' : ''); $('#netTxt').textContent = ok ? 'bağlı' : 'bağlantı yok'; }
+
+// ---------------------------------------------------------- yardimcilar
+function ago(ts){
+  if (!ts) return 'hiç görülmedi';
+  const s = Math.max(0, (new Date(ST.now) - new Date(ts)) / 1000);
+  if (s < 60) return 'az önce'; if (s < 3600) return Math.floor(s/60) + ' dk önce';
+  if (s < 86400) return Math.floor(s/3600) + ' sa önce'; return Math.floor(s/86400) + ' gün önce';
+}
+const fmtUp = s => s > 86400 ? `${Math.floor(s/86400)}g ${Math.floor(s%86400/3600)}sa` : `${Math.floor(s/3600)}sa ${Math.floor(s%3600/60)}dk`;
+const relayOnline = target => ST.devices.some(d => d.online && d.id !== target);
+const dev = id => ST.devices.find(d => d.id === id);
+const LEAVE_TXT = {none: 'Hiçbir şey', shutdown: 'Kapat', sleep: 'Uyut', hibernate: 'Hazırda beklet', lock: 'Kilitle'};
+const CMD_TXT = {shutdown:'Kapat', restart:'Yeniden başlat', sleep:'Uyku', hibernate:'Hazırda beklet', lock:'Kilitle', screen_off:'Ekranı kapat', cancel:'Geri sayım iptal', txt:'Yazı', key:'Tuş', wake:'Aç (WOL)', rename:'Ad değiştir', message:'Mesaj'};
+
+// ---------------------------------------------------------- cizim
+function render(){
+  const box = $('#devs');
+  if (!ST.devices.length){ box.innerHTML = `<div class="empty">Henüz cihaz yok. PC'de ajan çalıştığında burada görünür.</div>`; }
+  else box.innerHTML = ST.devices.map(d => {
+    const i = d.info || {};
+    if (d.kind === 'bekci') return `<div class="card"><div class="row"><span class="dot ${d.online ? 'on' : ''}"></span>
+      <div style="flex:1"><div class="title">🛡️ ${esc(d.name)}</div><div class="sub">${d.online ? 'Nöbette, kapalı PC\'leri açabilir' : 'Çevrimdışı · ' + ago(d.last_seen)}</div></div>
+      <button class="gear" onclick="settings('${d.id}')">⚙️</button></div></div>`;
+    const chips = d.online ? [i.os, `CPU %${Math.round(i.cpu ?? 0)}`, `RAM %${Math.round(i.ram ?? 0)}`,
+      i.battery ? `🔋 %${i.battery.percent}${i.battery.plugged ? ' ⚡' : ''}` : null, i.uptime ? `⏱ ${fmtUp(i.uptime)}` : null,
+      i.pending_power ? `⏳ ${i.pending_power.action === 'restart' ? 'Yeniden başlama' : 'Kapanma'}: ${Math.max(0, Math.ceil((i.pending_power.at * 1000 - Date.now()) / 60000))} dk` : null
+    ].filter(Boolean) : [`Son görülme: ${ago(d.last_seen)}`];
+    const rules = [d.on_arrive === 'wake' ? '📍 Eve gelince açılır' : null, d.on_leave !== 'none' ? `🚪 Çıkınca: ${LEAVE_TXT[d.on_leave]}` : null].filter(Boolean);
+    const body = d.online ? `
+      <div class="grid4">
+        <button onclick="cmd('${d.id}','lock')">🔒<br>Kilitle</button>
+        <button onclick="cmd('${d.id}','screen_off')">🖥️<br>Ekran</button>
+        <button onclick="cmd('${d.id}','sleep')">🌙<br>Uyku</button>
+        <button onclick="powerSheet('${d.id}')">⏻<br>Kapat…</button>
+      </div>
+      <div class="grid3" style="margin-top:8px">
+        <button onclick="typeSheet('${d.id}')">⌨️ Yaz</button>
+        <button onclick="msgSheet('${d.id}')">💬 Mesaj</button>
+        <button onclick="mediaSheet('${d.id}')">🔊 Ses</button>
+      </div>
+      ${i.lan_url ? `<a href="${esc(i.lan_url)}?t=${encodeURIComponent(KEY)}" style="display:block;margin-top:10px;text-align:center;color:var(--acc);font-size:13px;text-decoration:none">🏠 Evdeysen: fare ve tam klavye →</a>` : ''}`
+      : `<button class="acc" style="width:100%" ${relayOnline(d.id) ? '' : 'disabled'} onclick="cmd('${d.id}','wake')">⚡ Aç</button>
+         ${relayOnline(d.id) ? '' : '<p class="small" style="margin:8px 0 0">Evde açık cihaz yok, açma sinyali gönderilemiyor (Otomasyon → Kapalı PC nasıl açılıyor?)</p>'}`;
+    return `<div class="card"><div class="row"><span class="dot ${d.online ? 'on' : ''}"></span>
+      <div style="flex:1;min-width:0"><div class="title">${esc(d.name)}</div><div class="sub">${d.online ? 'Açık' : 'Kapalı / ulaşılamıyor'}</div></div>
+      <button class="gear" onclick="settings('${d.id}')">⚙️</button></div>
+      <div class="chips">${chips.concat(rules).map(c => `<span class="chip">${esc(c)}</span>`).join('')}</div>${body}</div>`;
+  }).join('');
+
+  $('#rules').innerHTML = ST.devices.filter(d => d.kind === 'pc').map(d =>
+    `<div class="sub" style="margin-top:6px">• <b>${esc(d.name)}</b>: gelince ${d.on_arrive === 'wake' ? '<b>aç</b>' : 'bir şey yapma'}, çıkınca <b>${LEAVE_TXT[d.on_leave].toLowerCase()}</b></div>`).join('') || '';
+
+  const st = {done: '✅', sent: '⏳', pending: '⏳', error: '❌', expired: '⌛'};
+  $('#logs').innerHTML = ST.commands.length ? ST.commands.map(c => {
+    const d = dev(c.device_id); const t = new Date(c.created_at).toLocaleTimeString('tr-TR', {hour: '2-digit', minute: '2-digit'});
+    const what = c.type === 'wake' ? `${esc(c.payload?.target)} aç (${esc(d?.name)} üzerinden)` : `${esc(d?.name || '?')} · ${CMD_TXT[c.type] || c.type}`;
+    return `<div class="log"><span>${st[c.status] || '•'}</span><div style="flex:1">${what}<div class="small">${t}${c.result ? ' · ' + esc(c.result) : ''}${c.status === 'expired' ? ' · PC zamanında çevrimiçi olmadı' : ''}</div></div></div>`;
+  }).join('') : '<div class="empty">Henüz işlem yok</div>';
+}
+
+// ---------------------------------------------------------- komutlar
+async function cmd(id, type, payload){
+  try{
+    const r = await rpc('pck_app_command', {p_key: KEY, p_device: id, p_type: type, p_payload: payload || {}});
+    fastUntil = Date.now() + 15000; schedule();
+    toast(type === 'wake' ? `Açma sinyali ${r.relay} üzerinden gönderiliyor…` : 'Gönderildi');
+  }catch(e){ toast(e.message); }
+}
+
+function powerSheet(id){
+  const d = dev(id);
+  sheet(`<div class="title">${esc(d.name)}</div>
+  <div class="grid2" style="margin-top:12px">
+    <button class="danger" onclick="cmd('${id}','shutdown',{force:$('#f').checked});closeSheet()">⏻ Şimdi kapat</button>
+    <button onclick="cmd('${id}','restart',{force:$('#f').checked});closeSheet()">🔄 Yeniden başlat</button>
+  </div>
+  <label><input type="checkbox" id="f" style="width:auto"> Zorla (açık programları kaydetmeden kapatır)</label>
+  <h3>Zamanlı kapat</h3>
+  <div class="grid4">${[15, 30, 60, 120].map(m => `<button onclick="cmd('${id}','shutdown',{delay:${m * 60}});closeSheet()">${m < 60 ? m + ' dk' : m / 60 + ' sa'}</button>`).join('')}</div>
+  <div class="grid2" style="margin-top:8px">
+    <button onclick="cmd('${id}','hibernate');closeSheet()">💤 Hazırda beklet</button>
+    <button class="ghost" onclick="cmd('${id}','cancel');closeSheet()">Geri sayımı iptal</button>
+  </div>`);
+}
+function typeSheet(id){
+  sheet(`<div class="title">PC'ye yaz</div><p class="sub">Yazı, PC'de o an açık olan pencereye yazılır.</p>
+  <textarea id="tx" rows="3" placeholder="Metin"></textarea>
+  <div class="grid2" style="margin-top:8px"><button class="acc" onclick="cmd('${id}','txt',{v:$('#tx').value});$('#tx').value=''">Gönder</button>
+  <button onclick="cmd('${id}','key',{k:['enter']})">Enter ↵</button></div>
+  <h3>Kısayollar</h3><div class="grid3">
+  ${[['Alt+Tab',['alt','tab']],['Alt+F4',['alt','f4']],['Masaüstü',['cmd','d']],['Esc',['esc']],['Ctrl+W',['ctrl','w']],['Kopyala',['ctrl','c']]]
+    .map(([l, k]) => `<button onclick='cmd("${id}","key",{k:${JSON.stringify(k)}})'>${l}</button>`).join('')}</div>`);
+}
+function mediaSheet(id){
+  sheet(`<div class="title">Ses ve medya</div><div class="grid3" style="margin-top:12px">
+  ${[['🔉 -',['vol_down']],['🔇',['mute']],['🔊 +',['vol_up']],['⏮',['prev']],['⏯',['play']],['⏭',['next']]]
+    .map(([l, k]) => `<button style="padding:18px 0;font-size:18px" onclick='cmd("${id}","key",{k:${JSON.stringify(k)}})'>${l}</button>`).join('')}</div>`);
+}
+function msgSheet(id){
+  sheet(`<div class="title">PC ekranına mesaj</div><p class="sub">PC'de önde bir uyarı penceresi açılır.</p>
+  <textarea id="mx" rows="3" placeholder="ör. Yemek hazır 🍕"></textarea>
+  <button class="acc" style="width:100%;margin-top:8px" onclick="cmd('${id}','message',{text:$('#mx').value});closeSheet()">Gönder</button>`);
+}
+
+function settings(id){
+  const d = dev(id);
+  const pc = d.kind === 'pc';
+  sheet(`<div class="title">⚙️ ${esc(d.name)}</div><div class="small">${esc(d.mac)}</div>
+  ${pc ? `
+  <div class="switch"><span>📍 Eve gelince aç</span><input type="checkbox" ${d.on_arrive === 'wake' ? 'checked' : ''} onchange="upd('${id}',{p_on_arrive:this.checked?'wake':'none'})"></div>
+  <label>🚪 Evden çıkınca</label>
+  <select onchange="upd('${id}',{p_on_leave:this.value})">${Object.entries(LEAVE_TXT).map(([k, v]) => `<option value="${k}" ${d.on_leave === k ? 'selected' : ''}>${v}${k === 'shutdown' ? ' (1 dk geri sayımla)' : ''}</option>`).join('')}</select>
+  <label>Adı</label><div class="row"><input id="nm" value="${esc(d.name)}"><button onclick="cmd('${id}','rename',{name:$('#nm').value});closeSheet()">Kaydet</button></div>
+  <h3>Siri kestirmesi</h3>
+  <p class="small" style="margin:0">URL'nin İçeriğini Al → Yöntem POST, başlık <code>apikey</code>, JSON gövdesine 3 Metin alanı: <code>p_key</code>, <code>p_device</code>, <code>p_type</code></p>
+  ${field('URL', `${SUPA}/rest/v1/rpc/pck_app_command`)}${field('apikey', APIKEY)}${field('p_key', KEY)}${field('p_device', id)}
+  <p class="small" style="margin:10px 0 0">p_type: aç <code>wake</code> · kapat <code>shutdown</code> · uyut <code>sleep</code> · kilitle <code>lock</code></p>` : ''}
+  <button class="ghost" style="width:100%;margin-top:14px" onclick="if(confirm('Listeden silinsin mi? Ajan çalışıyorsa geri gelir.')){rpc('pck_app_delete_device',{p_key:KEY,p_device:'${id}'}).then(()=>{closeSheet();poll()})}">Listeden sil</button>`);
+}
+async function upd(id, patch){
+  try{ await rpc('pck_app_update_device', {p_key: KEY, p_device: id, ...patch}); toast('Kaydedildi'); poll(); }
+  catch(e){ toast(e.message); }
+}
+async function testTrigger(e){
+  try{ const r = await rpc('pck_trigger', {p_key: KEY, p_event: e}); toast(r); fastUntil = Date.now() + 15000; schedule(); }
+  catch(err){ toast(err.message); }
+}
+async function copyText(t){
+  try{ await navigator.clipboard.writeText(t); toast('Kopyalandı'); }
+  catch(e){ const ta = document.createElement('textarea'); ta.value = t; document.body.appendChild(ta); ta.select();
+    try{ document.execCommand('copy'); toast('Kopyalandı'); }catch(_){ toast('Kopyalanamadı, elle seç'); } ta.remove(); }
+}
+
+document.querySelectorAll('nav button').forEach(b => b.onclick = () => {
+  document.querySelectorAll('.page').forEach(p => p.classList.toggle('show', p.id === b.dataset.p));
+  document.querySelectorAll('nav button').forEach(x => x.classList.toggle('sel', x === b));
+  scrollTo(0, 0);
+});
+
+// ---------------------------------------------------------- baslat
+const hk = new URLSearchParams(location.hash.slice(1)).get('k');
+const saved = hk || localStorage.getItem(LS);
+if (saved) login(saved); else $('#loginView').style.display = 'block';
+if (!saved) setNet(false);
+</script>
+</body>
+</html>
